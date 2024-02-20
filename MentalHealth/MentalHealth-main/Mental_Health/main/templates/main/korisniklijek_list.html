@@ -1,0 +1,21 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<br>
+<h2> Prepisani lijekovi </h2>
+<br>
+<a href="{% url 'main:add' %}">Dodaj lijek</a>
+
+{% for klijek in korisniklijek_list %}
+    {% if klijek.korisnik == request.user %}   
+
+        <div class="klijek">
+            <h3>Lijek: {{ klijek.lijek.ime_lijeka }}</h3>
+            <p>Preporucena doza: {{ klijek.lijek.doza }}</p>
+            <p>Dnevni unos: {{ klijek.lijek.ucestalost }}</p>
+            <a href="{% url 'main:delete' klijek.pk %}">Delete</a>
+            <br>
+        </div>
+    {% endif %}
+
+{% endfor %}
+{% endblock %}

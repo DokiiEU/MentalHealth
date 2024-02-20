@@ -1,0 +1,24 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<br>
+<h2> Raspolozenja </h2>
+<br>
+<p>Ukoliko nemate upisano raspolozenje:  <a href="{% url 'main:addr' %}">Dodaj raspolozenje</a></p>
+
+{% for raspolezenje in raspolozenje_list %}
+    {% if raspolezenje.korisnik == request.user %}   
+        <div class="raspolozenje">
+            <h3>Raspolozenje: {{ raspolezenje.mood }}</h3>
+            <p>Zapisi: {{ raspolezenje.notes }}</p>
+            <p>Datum: {{ raspolezenje.datum_izrade }}</p>
+            <a href="{% url 'main:update' raspolezenje.pk %}">Update</a>  <a href="{% url 'main:deleter' raspolezenje.pk %}">Delete</a>
+
+
+
+
+            <br>
+        </div>
+    {% endif %}
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentalHealth</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li><a href="{% url 'main:dnevnik' %}">Dnevnik</a></li>
+                <li><a href="{% url 'main:raspolozenje' %}">Raspolozenje</a></li>
+                <li><a href="{% url 'main:klijek' %}">Vaši lijekovi</a></li>
+                <li><a href="{% url 'main:lijekovi' %}">Baza lijekova</a></li>
+                <li><a href="/">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-color: #f9f9f9;
+    }
+
+    .navigation {
+        background-color: #534caf;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    .navigation ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .navigation ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    .navigation ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .content {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+</html>

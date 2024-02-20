@@ -1,0 +1,17 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<br>
+<h2> Baza lijekova </h2>
+<br>
+{% for lijek in lijekovi_list %}
+        <div class="lijekovi">
+            <h3>Naziv lijeka: {{ lijek.ime_lijeka }}</h3>
+            <h5>Doza: {{ lijek.doza }}</h5>
+            <p>Dnevno: {{ lijek.ucestalost }}</p>
+            <p>Datum: {{ lijek.datum_izrade }}</p>
+            <p>Kategorija: {{ lijek.kategorija.naziv }}</p>
+
+            <br>
+        </div>
+{% endfor %}
+{% endblock %}

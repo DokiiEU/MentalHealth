@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+  
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="form-container">
+            <h2>Registracija</h2>
+
+            <div class="return-btn">
+                <a href="/">Natrag na početnu stranicu</a>
+            </div>
+            <form method="post" action="{% url 'main:register' %}">
+                {% csrf_token %}
+                {{ form }}
+
+                <input type="submit" value="Registriraj se">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://images.pexels.com/photos/3389613/pexels-photo-3389613.jpeg');
+        background-size: cover;
+        background-position: center; 
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+
+    .form-container {
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #534caf;
+        width: 300px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .form-container h2 {
+        margin-top: 50px;
+        text-align: center;
+
+    }
+
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container form input[type="text"],
+    .form-container form input[type="password"],
+    .form-container form input[type="submit"] {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+
+    .form-container form input[type="submit"] {
+        background-color: #534caf;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .form-container form input[type="submit"]:hover {
+        background-color: #534caf;
+    }
+
+    .form-container form input[type="text"]:focus,
+    .form-container form input[type="password"]:focus {
+        border-color: #534caf;
+    }
+    
+    .return-btn {
+            text-align: center;
+            margin-top: 5px;
+
+        }
+
+        .return-btn a {
+            color: #534caf;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .return-btn a:hover {
+            color: #2c3e50;
+        }
+</style>
+</html>

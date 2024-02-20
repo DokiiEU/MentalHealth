@@ -1,0 +1,21 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<br>
+<h2> Dnevnik </h2>
+<br>
+<a href="{% url 'main:addd' %}">Dodaj unos</a>
+
+{% for dnevnik in journalentry_list %}
+    {% if dnevnik.user == request.user %}   
+        <div class="dnevnik">
+            <h3>Naslov: {{ dnevnik.naslov }}</h3>
+            <p>Sadrzaj: {{ dnevnik.sadrzaj }}</p>
+            <h4>Datum izrade: {{ dnevnik.datum_izrade }}</h4>
+            <a href="{% url 'main:updated' dnevnik.pk %}">Update</a> <a href="{% url 'main:deleted' dnevnik.pk %}">Delete</a>
+
+            <br>
+        </div>
+    {% endif %}
+
+{% endfor %}
+{% endblock %}

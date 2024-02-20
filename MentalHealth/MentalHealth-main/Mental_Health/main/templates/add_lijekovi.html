@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dodaj lijek</title>
+ 
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dodaj lijek</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Dodaj lijek</button>
+        </form>
+    </div>
+</body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #534caf;
+    }
+
+    h1 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #534caf;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #534caf;
+    }
+</style>
+</html>
